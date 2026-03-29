@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* App Colors */
+  --primary: #360185;
+  --secondary: #8F0177;
+  --accent: #DE1A58;
+  --highlight: #F4B342;
+  --scaffold-background: #F7F7FB;
+  --card-background: #FFFFFF;
+  --soft-background: #F1ECF8;
+  --primary-text: #1F1F2E;
+  --secondary-text: #6E6E85;
+  --hint-text: #9A9AAF;
+  --text-on-primary: #FFFFFF;
+  --primary-button: #360185;
+  --secondary-button: #8F0177;
+  --disabled-button: #BDBDC7;
+  --border-color: #E0E0EA;
+  --divider-color: #E0E0EA;
+  --success: #2ECC71;
+  --error: #E53935;
+  --warning: #F4B342;
+  -a_info: #3F51B5;
+  --price: #DE1A58;
+  --discount-badge: #F4B342;
+  -a_incoming-message: #EDE7F6;
+  --outgoing-message: #360185;
+  --chata_input-background: #FFFFFF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    /* App Colors - Dark Mode */
+    --scaffold-background: #0F0B1E;
+    --card-background: #1C1633;
+    --primary-text: #FFFFFF;
+    --secondary-text: #B8B6D3;
+    --border-color: #2C2750;
+  }
+}
+
+body {
+  background: var(--scaffold-background);
+  color: var(--primary-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
