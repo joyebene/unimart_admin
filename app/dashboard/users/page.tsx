@@ -58,9 +58,9 @@ export default function UsersPage() {
             {users.map((user) => (
               <tr key={user.id} className="border-b border-gray-300">
                 <td>
-                    <div className="rounded-full">
+                    <div className="rounded">
                         {user.avatarUrl ? (
-                            <Image src={user.avatarUrl} width={50} height={50} alt="user pics" className="rounded-full" />
+                            <Image src={user.avatarUrl} width={50} height={50} alt="user pics" className="w-12 h-12 rounded object-cover" />
                         ) : (
                             <UserCircle size={50} className="text-gray-300"  />
                         )}
