@@ -40,6 +40,8 @@ export default function ReportsPage() {
     try {
       const data = await getReports();
       setReports(data.data || data);
+      console.log(data.data);
+      
     } catch (err) {
       console.error(err);
       alert("Failed to fetch reports");
@@ -60,7 +62,7 @@ export default function ReportsPage() {
 
       <div className="bg-(--card-background) rounded-xl overflow-hidden">
         <table className="w-full">
-          <thead className="border-b">
+          <thead className="border-b border-gray-400">
             <tr className="text-left">
               <th className="p-4">Type</th>
               <th>Reason</th>

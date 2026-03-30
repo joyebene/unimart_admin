@@ -24,6 +24,9 @@ export default function UsersPage() {
       const data = await getUsers();
       
       setUsers(data.data || data);
+
+      console.log(data.data);
+      
     } catch (err) {
       console.error(err);
       alert("Failed to fetch users");
@@ -44,7 +47,7 @@ export default function UsersPage() {
 
       <div className="bg-(--card-background) rounded-xl overflow-hidden">
         <table className="w-full">
-          <thead className="border-b">
+          <thead className="border-b border-gray-400">
             <tr className="text-left">
               <th className="p-4">Avatar</th>  
               <th className="p-4">Name</th>

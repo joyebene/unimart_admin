@@ -67,7 +67,7 @@ export default function ProductsPage() {
 
       <div className="bg-(--card-background) rounded-xl overflow-hidden">
         <table className="w-full">
-          <thead className="border-b">
+          <thead className="border-b border-gray-400">
             <tr className="text-left">
               <th className="p-4">Image</th>
               <th>Name</th>
@@ -79,7 +79,7 @@ export default function ProductsPage() {
 
           <tbody>
             {products.map((product) => (
-              <tr key={product.id} className="border-b">
+              <tr key={product.id} className="border-b border-gray-300">
                 <td className="p-4">
                   <Image
                     src={product.imageUrl}

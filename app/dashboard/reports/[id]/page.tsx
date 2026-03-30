@@ -38,12 +38,11 @@ export default function ReportDetailsPage() {
       try {
         const data = await getReportDetails(id as string);
         const reportData = data.data || data;
+        console.log(reportData);
         
 
         if (!isMounted) return;
         setReport(reportData);
-
-        console.log(reportData);
         
 
         // Fetch target based on type
