@@ -93,7 +93,17 @@ export default function PaymentDetails() {
           <p><strong>Type:</strong> {payment.type}</p>
           <p><strong>Amount:</strong> ₦{payment.amount.toLocaleString()}</p>
           <p><strong>Reference:</strong> {payment.reference}</p>
-          <p><strong>Status:</strong> {payment.status}</p>
+          <p>
+            <strong>Status:</strong>{" "}
+            <span className={`px-2 py-1 rounded ${payment.status === "completed"
+                ? "bg-green-100 text-green-700"
+                : payment.status === "failed"
+                  ? "bg-red-100 text-red-700"
+                  : "bg-yellow-100 text-yellow-700"
+              }`}>
+              {payment.status}
+            </span>
+          </p>
           <p><strong>Date:</strong> {new Date(payment.createdAt).toLocaleString()}</p>
         </div>
 
