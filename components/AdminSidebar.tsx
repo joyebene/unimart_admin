@@ -13,6 +13,9 @@ export default function AdminSidebar() {
     { name: "Users", href: "/dashboard/users" },
     { name: "Products", href: "/dashboard/products" },
     { name: "Reports", href: "/dashboard/reports" },
+    { name: "Support Inbox", href: "/dashboard/support-message" },
+    { name: "Feedback", href: "/dashboard/feedback" },
+    { name: "Payments", href: "/dashboard/payment" },
   ];
 
   const handleLogout = () => {

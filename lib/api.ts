@@ -50,3 +50,34 @@ export async function getReportDetails(id: string) {
 export async function updateReportStatus(id:string, status: string) {
   return apiRequest(`/report/${id}/status`, "PUT", { status });
 }
+
+
+export async function getFeedBacks() {
+  return apiRequest(`/feedback`, "GET");
+}
+
+
+export async function getSupportMessages() {
+  return apiRequest(`/support-message/all`, "GET");
+}
+
+export async function updateSupportMessageStatus(id: string, status: string) {
+  return apiRequest(`/support-message/${id}`, "PUT", { status });
+}
+
+
+
+export async function getPayments() {
+  return apiRequest("/payment", "GET");
+}
+
+
+export async function getPaymentDetails(id: string) {
+  return apiRequest(`/payment/${id}`, "GET");
+}
+
+
+
+export async function updatePaymentStatus(id: string, status: string) {
+  return apiRequest(`/payment/${id}/status`, "PUT", { status });
+}
