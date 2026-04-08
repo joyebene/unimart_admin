@@ -46,9 +46,6 @@ export default function PaymentDetails() {
       try {
         const res = await getPaymentDetails(id);
 
-        console.log(res);
-
-
 
         setPayment(res.payment || res);
         setProduct(res.product || res);
@@ -64,7 +61,9 @@ export default function PaymentDetails() {
 
   const handleStatusChange = async (status: "pending" | "completed" | "failed") => {
     try {
-      await updatePaymentStatus(id!, status);
+     const res = await updatePaymentStatus(id!, status);
+     console.log(res);
+     
       alert(`Payment status updated to ${status}`);
       setPayment({ ...payment!, status });
     } catch (err) {
@@ -81,7 +80,7 @@ export default function PaymentDetails() {
     <div className="bg-(--card-background) p-6 rounded-xl shadow-lg">
       <h1 className="text-2xl font-bold mb-4">Payment Details</h1>
 
-      <div className="flex items-center justify-between">
+      <div className="flex justify-between mt-10 max-w-2/3">
         <div className="mb-4">
           <h2 className="font-semibold">User Information</h2>
           <p><strong>Name:</strong> {payment.user?.fullName || payment.userId}</p>
@@ -125,7 +124,7 @@ export default function PaymentDetails() {
             <div>
               <p className="font-medium">{product.name}</p>
               <p className="text-gray-600">
-                ₦{product.price.toLocaleString()}
+                ₦{product?.price?.toLocaleString() || "N/A"}
               </p>
             </div>
           </div>
