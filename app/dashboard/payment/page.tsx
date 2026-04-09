@@ -25,12 +25,12 @@ export default function PaymentsPage() {
         const fetchPayments = async () => {
             try {
                 const res = await getPayments();
-                
-           
+
+
                 // Ensure we always have an array
                 const paymentsData = Array.isArray(res.payments) ? res.payments : res;
-                
-                
+
+
                 setPayments(paymentsData || []);
             } catch (err) {
                 console.error("Failed to fetch payments:", err);
@@ -75,7 +75,17 @@ export default function PaymentsPage() {
                                 <td className="p-2">{p.user?.fullName || p.userId}</td>
                                 <td className="p-2">{p.type}</td>
                                 <td className="p-2">₦{p.amount.toLocaleString()}</td>
-                                <td className="p-2">{p.status}</td>
+                                <td className="p-2">
+                                     <span className={`p-2 rounded ${p.status === "completed"
+                                    ? "bg-green-100 text-green-700"
+                                    : p.status === "failed"
+                                        ? "bg-red-100 text-red-700"
+                                        : "bg-yellow-100 text-yellow-700"
+                                    }`}>
+                                    {p.status}
+                                </span> 
+                                </td>
+                              
                                 <td className="p-2">{new Date(p.createdAt).toLocaleString()}</td>
                                 <td className="p-2">
                                     <button

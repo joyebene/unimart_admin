@@ -46,8 +46,6 @@ export default function PaymentDetails() {
       try {
         const res = await getPaymentDetails(id);
 
-        console.log(res);
-
         setPayment(res.payment || null);
         setProduct(res.product || null);
       } catch (err) {
