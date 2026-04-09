@@ -46,9 +46,10 @@ export default function PaymentDetails() {
       try {
         const res = await getPaymentDetails(id);
 
+        console.log(res);
 
-        setPayment(res.payment || res);
-        setProduct(res.product || res);
+        setPayment(res.payment || null);
+        setProduct(res.product || null);
       } catch (err) {
         console.error("Failed to fetch payment:", err);
         alert("Failed to fetch payment");
@@ -61,8 +62,7 @@ export default function PaymentDetails() {
 
   const handleStatusChange = async (status: "pending" | "completed" | "failed") => {
     try {
-     const res = await updatePaymentStatus(id!, status);
-     console.log(res);
+     await updatePaymentStatus(id!, status);
      
       alert(`Payment status updated to ${status}`);
       setPayment({ ...payment!, status });
@@ -115,7 +115,7 @@ export default function PaymentDetails() {
           <div className="flex items-center gap-4 mt-2">
             <Image
               src={product.imageUrl}
-              alt={product.name}
+              alt="product image"
               width={100}
               height={100}
               className="w-24 h-24 object-cover rounded-lg border border-(--border-color)"
