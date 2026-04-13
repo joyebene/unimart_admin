@@ -16,6 +16,7 @@ export default function AdminSidebar() {
     { name: "Support Inbox", href: "/dashboard/support-message" },
     { name: "Feedback", href: "/dashboard/feedback" },
     { name: "Payments", href: "/dashboard/payment" },
+    { name: "Email Notification", href: "/dashboard/email-notification" },
   ];
 
   const handleLogout = () => {

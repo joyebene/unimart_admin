@@ -81,3 +81,7 @@ export async function getPaymentDetails(id: string) {
 export async function updatePaymentStatus(id: string, status: string) {
   return apiRequest(`/payment/${id}/status`, "PUT", { status });
 }
+
+export async function sendEmailNotification(subject: string, body: string, limit?: string) {
+  return apiRequest("/notification/send",  "POST", { subject, body, limit });
+}
