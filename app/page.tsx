@@ -15,19 +15,24 @@ export default function AdminLoginPage() {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
-  setLoading(true);
-  try {
-    const data = await adminLogin(email, password);
-    
-    // Save token in localStorage or cookie
-    localStorage.setItem("adminToken", data.data.accessToken);
-    localStorage.setItem("refreshToken", data.data.refreshToken);
-    router.push("/dashboard");
-  } catch (err: any) {
-    alert(err.message);
-  }
-  setLoading(false);
-};
+    setLoading(true);
+     if (email != "admin@unimart.com") {
+      setLoading(false);
+        alert('You not authorized')
+      }
+    try {
+
+      const data = await adminLogin(email, password);
+
+      // Save token in localStorage or cookie
+      localStorage.setItem("adminToken", data.data.accessToken);
+      localStorage.setItem("refreshToken", data.data.refreshToken);
+      router.push("/dashboard");
+    } catch (err: any) {
+      alert(err.message);
+    }
+    setLoading(false);
+  };
 
 
   return (
@@ -35,9 +40,9 @@ export default function AdminLoginPage() {
 
       {/* LEFT SIDE (FORM) */}
       <div className="flex flex-col justify-center items-center w-full md:w-1/2 bg-(--scaffold-background) p-6">
-        
+
         <div className="w-full max-w-md p-8 rounded-2xl shadow-lg bg-(--card-background)">
-          
+
           <Image
             src="/unimart.png"
             width={150}
